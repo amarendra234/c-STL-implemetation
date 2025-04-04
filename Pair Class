@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+template<typename T1,typename T2>
+class MyPair{
+    public:
+     T1 first;
+     T2 second;
+     // default constructor
+     MyPair():first(T1()),second(T()) {}
+
+     // parametrized constructor
+     MyPair(const T1& f,const T2& s):first(f),second(s) {}
+
+     //copy constructor
+     MyPair(const MyPair<T1,T2>&others) : first(others.first),second(others.second) {}
+
+     //Assignment operator
+     MyPair& operator=(const MyPair<T1,T2>&other){
+        if(other!=this){
+            first=other.first;
+            second=other.second;
+        }
+        return *this;
+     }
+
+     // less than operator
+     bool operator<(const MyPair<T1,T2>&other){
+        if(first<other.first){
+            return true;
+        }
+        if(second<other.second){
+            return true;
+        }
+        return false;
+     }
+
+    
+};
+int main(){
+    MyPair<int,string>p(1,"0ne");
+    MyPair<int,string>p1(1,"two");
+    if(p<p1){
+        cout<<"greater"<<endl;
+    }
+
+}
